@@ -25,5 +25,10 @@ public class UserService {
         //This method retrieves a list of User entities from the repository and converts it into a list of UserDto objects using ModelMapper.
 
     }
-    
+
+    public UserDto saveUser(UserDto userDto) {
+        userRepo.save(modelMapper.map(userDto, User.class));
+        return userDto;
+        //This method saves a UserDto by mapping it to a User entity, storing it in the repository, and then returning the original UserDto object.
+    }
 }
