@@ -22,5 +22,9 @@ public class UserController {
     public UserDto UserDto (@RequestBody UserDto userDto){
         return userService.saveUser(userDto);
     }
+    @PutMapping("/updateUser")
+    public UserDto updateUser(@RequestBody UserDto userDto){
+        return userService.saveUser(userDto);
+    }
 
 }
