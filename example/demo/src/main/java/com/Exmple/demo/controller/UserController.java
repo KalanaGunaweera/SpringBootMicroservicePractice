@@ -26,6 +26,14 @@ public class UserController {
     public UserDto updateUser(@RequestBody UserDto userDto){
         return userService.saveUser(userDto);
     }
+    @DeleteMapping("/deleteUser/{id}")
+    public String deleteUser(@PathVariable int id){
+        return userService.deleteUser(id);
+    }
+    @DeleteMapping("/deleteUser")
+    public String deleteUser( @RequestBody UserDto userDto){
+        return userService.deleteUser(userDto);
+    }
 
 
 }

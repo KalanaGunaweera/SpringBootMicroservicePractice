@@ -31,4 +31,14 @@ public class UserService {
         return userDto;
         //This method saves a UserDto by mapping it to a User entity, storing it in the repository, and then returning the original UserDto object.
     }
+
+    public String deleteUser(int id) {
+//        userRepo.delete(userRepo.getReferenceById(id));
+        userRepo.deleteById(id);
+        return "User Deleted";
+    }
+    public String deleteUser(UserDto userDto) {
+        userRepo.delete(modelMapper.map(userDto, User.class));
+        return "User Deleted";
+    }
 }
