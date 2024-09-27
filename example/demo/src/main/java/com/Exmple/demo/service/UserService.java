@@ -8,6 +8,7 @@ import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 
@@ -39,6 +40,13 @@ public class UserService {
     }
     public String deleteUser(UserDto userDto) {
         userRepo.delete(modelMapper.map(userDto, User.class));
+        return "User Deleted";
+    }
+
+
+    public String getUserById(int id) {
+        userRepo.getUserById(id);
+//        userRepo.findById(id).orElse(null);
         return "User Deleted";
     }
 }
